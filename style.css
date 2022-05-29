@@ -1,0 +1,70 @@
+.container{
+
+    /* How pronounced should the 3D effects be */
+    perspective: 400px;
+    -webkit-perspective: 400px;
+
+    background: radial-gradient(#000000, rgb(0, 0, 0));
+    width:480px;
+    height:480px;
+    margin:0 auto;
+    border-radius:6px;
+    position:relative;
+}
+
+.note_ultra-front, .note_ultra-back{
+
+    /* Enable 3D transforms */
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+
+    /* We are using two separate divs for the front and back of the
+       phone. This will hide the divs when they are flipped, so that the
+       opposite side can be seen:  */
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    width:200px;
+    height:333px;
+
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin:-166px 0 0 -100px;
+
+    background:url(images/gsmarena_003.jpg) no-repeat left center;
+
+    /* Animate the transitions */
+    transition:0.8s;
+}
+/* note 20 ultra width: 563px × height: 500px  */
+
+.note_ultra-back{
+
+    /* The back side is flipped 180 deg by default */
+    transform:rotateY(180deg);
+    -webkit-transform:rotateY(180deg);
+
+    background-position:right center;
+}
+
+.container:hover .note_ultra-front{
+    /* When the container is hovered, flip the front side and hide it .. */
+    transform:rotateY(180deg);
+    -webkit-transform:rotateY(180deg);
+}
+
+.container:hover .note_ultra-back{
+    /* .. at the same time flip the back side into visibility */
+    transform:rotateY(360deg);
+    -webkit-transform:rotateY(360deg);
+}
+
+.Note_ultra{
+    position: absolute;
+     
+   left: 40%;
+   top: 10%;
+   color: white;
+}
